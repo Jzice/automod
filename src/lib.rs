@@ -113,7 +113,7 @@ pub fn dir(input: TokenStream) -> TokenStream {
 }
 
 fn mod_item(vis: &Visibility, name: String) -> TokenStream2 {
-    let mut module_name = name.replace('-', "_");
+    let mut module_name = name.replace('-', "_").replace('.', "_");
     if module_name.starts_with(|ch: char| ch.is_ascii_digit()) {
         module_name.insert(0, '_');
     }
